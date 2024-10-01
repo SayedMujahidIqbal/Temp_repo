@@ -40,3 +40,20 @@ referenceToAddition(10, 15) // 25 is printed
 ////// If we reference to greet method we run into issue with undefined this.name variable, by reference calling this loses its track, to preserve the original this, we use bind mechanisms ////////////
 setTimeout(arto.greet, 1000) // will print undefined because this has loses its track to the original value
 setTimeout(arto.greet.bind(arto), 1000) // this will print its original value.
+
+//////////////////////// Classes ////////////////////////////
+class Person {
+    constructor(name, age){
+        this.name = name
+        this.age = age
+    }
+    greet(){
+        console.log('Hello, my name is ' + this.name)
+    }
+}
+
+const mujahid = new Person('Mujahid iqbal', 30)
+mujahid.greet()
+
+const asad = new Person('Asad Iqbal', 23)
+asad.greet();
