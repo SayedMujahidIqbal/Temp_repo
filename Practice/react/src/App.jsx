@@ -14,13 +14,29 @@ import { useState } from "react"
 //   )
 // }
 
-// const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>
+const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>
 
 // const Display = ({ counter }) => {
 //   return(
 //     <div>{counter}</div>
 //   )
 // }
+
+////////////// Conditional Rendering ///////////////
+const History = (props) => {
+  if(props.allClicks.length === 0){
+    return(
+      <div>
+        The app is used by pressing the buttons
+      </div>
+    )
+  }
+  return(
+    <div>
+      button press history: {props.allClicks.join(' ')}
+    </div>
+  )
+}
 
 const App = () => {
   // const name = 'Mujahid'
@@ -85,13 +101,13 @@ const App = () => {
   return (
     <div>
       {left}
-      <button onClick={handleLeftClick}>left</button>
-      <button onClick={handleRightClick}>right</button>
+      <Button onClick={handleLeftClick} text="left" />
+      <Button onClick={handleRightClick} text="right" />
       {/* <button onClick={() => setLeft(left + 1)}>left</button>
       <button onClick={() => setRight(right + 1)}>right</button> */}
       {right}
-      <p>{allClicks.join(' ')}</p>
-      <p>total {total}</p>
+      <History allClicks={allClicks} />
+      {/* <p>total {total}</p> */}
         {/* <Display counter={counter} />
         <Button 
           onClick={increaseByOne}
